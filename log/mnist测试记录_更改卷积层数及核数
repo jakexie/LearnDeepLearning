@@ -1,0 +1,100 @@
+epochs = 5 optimizer=sgd
+1个隐藏层--> 1全连接
+32个神经元 Dense(32,activation='relu')
+accuracy = 0.82
+64个神经元 Dense(64,activation='relu')
+accuracy = 0.88
+128个神经元 Dense(128,activation='relu')
+accuracy = 0.90
+256个神经元 Dense(256,activation='relu')
+accuracy = 0.92
+512个神经元 Dense(512,activation='relu')
+accuracy = 0.929
+1024个神经元 Dense(1024,activation='relu')
+accuracy = 0.933
+
+epochs = 5 optimizer=sgd
+增加卷积层(3,3)
+卷积 32 + Flatten + 全连接（隐藏） 1024 + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', input_shape=(28,28,1))
+    1024个神经元 Dense(1024,activation='relu')
+    Accuracy = 0.97 loss = 0.072 30s
+卷积 32 + Flatten + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', input_shape=(28,28,1))
+    Accuracy = 0.921 loss = 0.2824 30s 1min30s
+
+卷积 32 + 卷积 32 + Flatten + 全连接（隐藏） 1024 + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', input_shape=(28,28,1))
+    Conv2D(32,(3,3),padding='same')
+    Accuracy = 0.981 loss = 0.2824 1min24s
+
+epochs = 12 optimizer=sgd
+卷积 32 + 卷积 64 + Flatten + 全连接（隐藏） 1024 + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', activation='relu', input_shape=(28,28,1))
+    Conv2D(32,(3,3),padding='same', activation='relu')
+    Accuracy = 0.9863 loss = 0.0442 5min29s
+
+卷积 32 + 卷积 64 + maxpool(2,2) + Flatten + 全连接（隐藏） 1024 + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', activation='relu', input_shape=(28,28,1))
+    Conv2D(32,(3,3),padding='same', activation='relu')
+    Accuracy = 0.9873 loss = 0.0375 3min4s
+
+卷积 32 + maxpool(2,2) + 卷积 64 + maxpool(2,2) + Flatten + 全连接（隐藏） 1024 + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', activation='relu', input_shape=(28,28,1))
+    Conv2D(32,(3,3),padding='same', activation='relu')
+    Accuracy = 0.9885 loss = 0.0338 1min42s
+
+epochs = 12 optimizer=adadelta
+卷积 32 + maxpool(2,2) + 卷积 64 + maxpool(2,2) + Flatten + 全连接（隐藏） 1024 + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', activation='relu', input_shape=(28,28,1))
+    Conv2D(32,(3,3),padding='same', activation='relu')
+    Dense(1024,activation='relu')
+    Accuracy = 0.9932 loss = 0.0233 2min47s
+卷积 32 + maxpool(2,2) + 卷积 64 + maxpool(2,2) + Flatten + 全连接（隐藏） 512 + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', activation='relu', input_shape=(28,28,1))
+    Conv2D(32,(3,3),padding='same', activation='relu')
+    Dense(512,activation='relu')
+    Accuracy = 0.9928 loss = 0.0248 2min24s
+卷积 32 + maxpool(2,2) + 卷积 64 + maxpool(2,2) + Flatten + 全连接（隐藏） 256 + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', activation='relu', input_shape=(28,28,1))
+    Conv2D(32,(3,3),padding='same', activation='relu')
+    Dense(256,activation='relu')
+    Accuracy = 0.9933 loss = 0.0216 2min15s
+卷积 32 + maxpool(2,2) + 卷积 64 + maxpool(2,2) + Flatten + 全连接（隐藏） 128 + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', activation='relu', input_shape=(28,28,1))
+    Conv2D(32,(3,3),padding='same', activation='relu')
+    Dense(256,activation='relu')
+    Accuracy = 0.9925 loss = 0.0238 2min16s
+
+epochs = 12 optimizer=rmsprop
+卷积 32 + maxpool(2,2) + 卷积 64 + maxpool(2,2) + Flatten + 全连接（隐藏） 128 + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', activation='relu', input_shape=(28,28,1))
+    Conv2D(32,(3,3),padding='same', activation='relu')
+    Dense(128,activation='relu')
+    Accuracy = 0.984 loss = 0.062 1min57s
+卷积 32 + maxpool(2,2) + 卷积 64 + maxpool(2,2) + Flatten + 全连接（隐藏） 1024 + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', activation='relu', input_shape=(28,28,1))
+    Conv2D(32,(3,3),padding='same', activation='relu')
+    Dense(1024,activation='relu')
+    Accuracy = 0.9894 loss = 0.0527 2min28s
+
+epochs = 12 optimizer=adagrad
+卷积 32 + maxpool(2,2) + 卷积 64 + maxpool(2,2) + Flatten + 全连接（隐藏） 1024 + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', activation='relu', input_shape=(28,28,1))
+    Conv2D(32,(3,3),padding='same', activation='relu')
+    Dense(1024,activation='relu')
+    Accuracy = 0.9938 loss = 0.0186 2min18s
+
+epochs = 12 optimizer=adam
+卷积 32 + maxpool(2,2) + 卷积 64 + maxpool(2,2) + Flatten + 全连接（隐藏） 1024 + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', activation='relu', input_shape=(28,28,1))
+    Conv2D(32,(3,3),padding='same', activation='relu')
+    Dense(1024,activation='relu')
+    Accuracy = 0.9914 loss = 0.0325 2min46s
+
+epochs = 12 optimizer=adamax
+卷积 32 + maxpool(2,2) + 卷积 64 + maxpool(2,2) + Flatten + 全连接（隐藏） 1024 + 全连接（softmax输出层） 10
+    Conv2D(32,(3,3),padding='same', activation='relu', input_shape=(28,28,1))
+    Conv2D(32,(3,3),padding='same', activation='relu')
+    Dense(1024,activation='relu')
+    Accuracy = 0.9905 loss = 0.0372 2min52s

@@ -1,0 +1,10 @@
+1. letnet-5(7 layers) 论文中conv2 non complete connection 未能实现
+epochs=5 optimizer=sgd
+    ap_2 == 平均池化(即均值滤波)
+    conv1(5*5)*6      +       ap_1(2*2) + cov2(5*5)*16(仅激活10个) + ap_2(5*5) + conv_3(5*5)*120 + full_1(84) + output(10)
+    28*28*6(padding='same') -> 14*14*6 ->        10*10*16   -->     5*5*16  -->  1*1*120   -->    1*1*84  -->  1*1*10
+    accuracy: 0.91 loss: 0.299 42s
+epochs=5 optimizer=adam
+    accuracy: 0.95 loss: 0.1477 38s
+
+2. alexnet
