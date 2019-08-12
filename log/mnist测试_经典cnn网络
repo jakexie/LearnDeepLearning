@@ -1,5 +1,5 @@
 1. letnet-5(7 layers) 论文中conv2 non complete connection 未能实现
-epochs=5 optimizer=sgd
+epochs=5 optimizer=sgd 输入尺寸：28×28×1
     ap_2 == 平均池化(即均值滤波)
     conv1(5*5)*6      +       ap_1(2*2) + cov2(5*5)*16(仅激活10个) + ap_2(5*5) + conv_3(5*5)*120 + full_1(84) + output(10)
     28*28*6(padding='same') -> 14*14*6 ->        10*10*16   -->     5*5*16  -->  1*1*120   -->    1*1*84  -->  1*1*10
@@ -8,3 +8,23 @@ epochs=5 optimizer=adam
     accuracy: 0.95 loss: 0.1477 38s
 
 2. alexnet
+epochs=12 optimizer=sgd 输入尺寸 20000* 227×227×3 其中val_data %1
+    mp == 最大池化(即为形态学膨胀操作+降采样),全局使用胡窗口尺寸肯步长不改变
+    LRN == 局部正则
+    conv1(11*11)*96(stride=4)  + LRN   +  max_pool_1(3*3,strides=2) + cov2(5*5)*256(strides=1) + LRN + max_pool_2 + conv_3(3*3)*384 + conv_4(3*3)*384 + conv_5(3*3)*256 + max_pool_3 + full_1(4096) + Dropout + full_1(4096) + Dropout + output(1000)
+    55*55*96(padding='same') -> 27*27*96 ->        27*27*256   -->     13*13*384  -->  13*13*384   -->    13*13*256  --> 6*6*256 --> 1*1*4096 --> 1*1*4096 --> 1*1*1000
+    accuracy: 0.9935 loss: 0.0202643
+
+3. zfnet
+epochs=12 optimizer=sgd 输入尺寸 20000* 227×227×3 其中val_data %1
+    mp == 最大池化(即为形态学膨胀操作+降采样),全局使用胡窗口尺寸肯步长不改变
+    LRN == 局部正则
+    conv1(7*7)*96(stride=2)  + LRN   +  max_pool_1(3*3,strides=2) + cov2(5*5)*256(strides=2) + LRN + max_pool_2 + conv_3(3*3)*384 + conv_4(3*3)*384 + conv_5(3*3)*256 + max_pool_3 + full_1(4096) + Dropout + full_1(4096) + Dropout + output(1000)
+    accuracy:  loss: 
+
+3. vgg16
+epochs=12 optimizer=sgd 输入尺寸 20000* 227×227×3 其中val_data %1
+    无 Dropout
+    accuracy: 0.9845 loss: 0.065
+    有 Dropout
+    accuracy: 0.988 loss: 0.035

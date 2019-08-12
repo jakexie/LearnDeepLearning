@@ -36,3 +36,21 @@ def preprocess4Alexnet(input_data, sample_nums, dsize=(227, 227)):
             res = cv2.cvtColor(res, cv2.COLOR_GRAY2BGR);
         converted[i] = res;
     return converted;
+
+# 显示loss曲线
+def showAccLossCurve(history):
+    plt.plot(history.history['acc'])
+    plt.plot(history.history['val_acc'])
+    plt.title('Model accuracy')
+    plt.ylabel('Accuracy')
+    plt.xlabel('Epoch')
+    plt.legend(['Train', 'Test'], loc='upper left')
+    plt.show()
+
+    plt.plot(history.history['loss'])
+    plt.plot(history.history['val_loss'])
+    plt.title('Model loss')
+    plt.ylabel('Loss')
+    plt.xlabel('Epoch')
+    plt.legend(['Train', 'Test'], loc='upper left')
+    plt.show()
