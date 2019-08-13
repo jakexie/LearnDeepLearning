@@ -22,9 +22,14 @@ epochs=12 optimizer=sgd 输入尺寸 20000* 227×227×3 其中val_data %1
     conv1(7*7)*96(stride=2)  + LRN   +  max_pool_1(3*3,strides=2) + cov2(5*5)*256(strides=2) + LRN + max_pool_2 + conv_3(3*3)*384 + conv_4(3*3)*384 + conv_5(3*3)*256 + max_pool_3 + full_1(4096) + Dropout + full_1(4096) + Dropout + output(1000)
     accuracy:  loss: 
 
-3. vgg16
+4. vgg16
 epochs=12 optimizer=sgd 输入尺寸 20000* 227×227×3 其中val_data %1
     无 Dropout
     accuracy: 0.9845 loss: 0.065
     有 Dropout
     accuracy: 0.988 loss: 0.035
+
+5. googLenet 没实现副分类器训练
+epochs=12 optimizer=sgd 输入尺寸 20000* 227×227×3 其中val_data %1
+    accuracy: 0.9765 loss: 0.0667
+    55s/epoch 3ms/step
