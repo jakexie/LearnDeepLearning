@@ -1,6 +1,7 @@
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
+import datetime
 
 # 棋盘显示图片
 # images 输入图片 eg:（600， 256， 256， 3）
@@ -54,3 +55,13 @@ def showAccLossCurve(history):
     plt.xlabel('Epoch')
     plt.legend(['Train', 'Test'], loc='upper left')
     plt.show()
+
+def trainAndEvaluateData(model, train_data, train_label, test_data, test_label):
+    start_tm = datetime.datetime.now()
+    history = model.fit(train_data, train_label, validation_split=0.1, epochs=12)
+    end_tm = datetime.datetime.now()
+    print("cost: ", (end_tm-start_tm).seconds)
+    
+    scores = model.evaluate(test_data, test_label)
+    print("loss: ", scores[0])
+    print("acc: ", scores[1])

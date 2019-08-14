@@ -33,3 +33,8 @@ epochs=12 optimizer=sgd 输入尺寸 20000* 227×227×3 其中val_data %1
 epochs=12 optimizer=sgd 输入尺寸 20000* 227×227×3 其中val_data %1
     accuracy: 0.9765 loss: 0.0667
     55s/epoch 3ms/step
+
+6 resnet
+epochs=12 optimizer=sgd 输入尺寸 20000* 227×227×3 其中val_data %1
+    accuracy: 0.987 loss: 0.03266
+    74s/epoch 4ms/step

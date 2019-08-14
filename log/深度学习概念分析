@@ -57,4 +57,12 @@ W 图像宽 F 卷积核宽 P padding数
     这两种操作大大增加了数据量（2048倍 2*(256-224)*(256-224)）
     3.修改图片RGB三通道强度(即改变光照和强度)
 
-
+2015 resnet
+identity mapping(恒等映射结构): 
+    以res50 为例：
+        input 
+        step1: branch_a conv_1(1*1*256) -> bn_1 -> scale_1
+        step2: branch_b conv_1(1*1*64) -> bn_1 -> scale_1 -> relu_1 
+                     -> conv_2(3*3*64) -> bn_2 -> scale_2 -> relu_2
+                     -> conv_3(1*1*256) -> bn_3 -> scale_3
+        step3: branch_a + branch_b -> relu
