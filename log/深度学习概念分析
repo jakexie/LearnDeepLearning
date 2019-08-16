@@ -66,3 +66,7 @@ identity mapping(恒等映射结构):
                      -> conv_2(3*3*64) -> bn_2 -> scale_2 -> relu_2
                      -> conv_3(1*1*256) -> bn_3 -> scale_3
         step3: branch_a + branch_b -> relu
+
+1997 LSTM
+Embedding 层： 降维聚类
+    Embedding 层输入一般为一句话（语句中每个单词已转换为one hot），输出为单词中每个单词对应的vector（即对应的编码）
