@@ -56,9 +56,9 @@ def showAccLossCurve(history):
     plt.legend(['Train', 'Test'], loc='upper left')
     plt.show()
 
-def trainAndEvaluateData(model, train_data, train_label, test_data, test_label):
+def trainAndEvaluateData(model, train_data, train_label, test_data, test_label, epochs=12):
     start_tm = datetime.datetime.now()
-    history = model.fit(train_data, train_label, validation_split=0.1, epochs=12)
+    history = model.fit(train_data, train_label, validation_split=0.1, epochs=epochs)
     end_tm = datetime.datetime.now()
     print("cost: ", (end_tm-start_tm).seconds)
     

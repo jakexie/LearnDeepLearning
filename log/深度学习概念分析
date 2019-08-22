@@ -68,5 +68,11 @@ identity mapping(恒等映射结构):
         step3: branch_a + branch_b -> relu
 
 1997 LSTM
+LSTM本质上是利用了数据的序列特性（例如时间上的前后相关性），而普通的dnn是不知道数据的序列特性的。
 Embedding 层： 降维聚类
     Embedding 层输入一般为一句话（语句中每个单词已转换为one hot），输出为单词中每个单词对应的vector（即对应的编码）
+LSTM 参数计算： （m + n + 1）*n
+    m+n: 每个LSTM cell 的输入为当前输入xt和上一个cell的输出ht-1的串联 concatenate(xt+ht-1), xt为m维向量, ht-1为n维向量
+    1：偏置
+    n：LSTM cell的输出维度
+    因此 权重矩阵的参数个数 为 输入维度（m+n）+ 偏置（1） × 输出维度（n）
