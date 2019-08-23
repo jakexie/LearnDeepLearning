@@ -22,6 +22,15 @@ def showImages(images, grids=(5,5)):
         plt.imshow(images[i])#, cmap=plt.cm.binary)
     plt.show()
 
+def showSingleImage(image):
+    print("info:\nimage size --> ", image.shape[0], "x", image.shape[1])
+    if len(image.shape) == 3:
+        print("channels --> ", images.shape[3])
+    plt.xticks([])
+    plt.yticks([])
+    plt.imshow(image, cmap=plt.cm.binary)
+    plt.show()
+
 # alexnet 网络预处理
 # resize image to (227, 227, 3)
 def preprocess4Alexnet(input_data, sample_nums, dsize=(227, 227)):
