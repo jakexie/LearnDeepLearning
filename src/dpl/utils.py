@@ -25,7 +25,7 @@ def showImages(images, grids=(5,5)):
 def showSingleImage(image):
     print("info:\nimage size --> ", image.shape[0], "x", image.shape[1])
     if len(image.shape) == 3:
-        print("channels --> ", images.shape[3])
+        print("channels --> ", image.shape[2])
     plt.xticks([])
     plt.yticks([])
     plt.imshow(image, cmap=plt.cm.binary)
@@ -65,9 +65,9 @@ def showAccLossCurve(history):
     plt.legend(['Train', 'Test'], loc='upper left')
     plt.show()
 
-def trainAndEvaluateData(model, train_data, train_label, test_data, test_label, epochs=12):
+def trainAndEvaluateData(model, train_data, train_label, test_data, test_label, epochs=12, batch_size=32):
     start_tm = datetime.datetime.now()
-    history = model.fit(train_data, train_label, validation_split=0.1, epochs=epochs)
+    history = model.fit(train_data, train_label, validation_split=0.1, epochs=epochs, batch_size=batch_size)
     end_tm = datetime.datetime.now()
     print("cost: ", (end_tm-start_tm).seconds)
     
