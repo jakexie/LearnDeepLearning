@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc19cde2-18cc-482e-82cf-091b5417d7ba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/traditional/segment/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/traditional/segment/fcn16s_net.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/traditional/segment/fcn16s_net_v2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/traditional/segment/fcn32s_net.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/traditional/segment/fcn32s_net_v2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/traditional/segment/fcn8s_net.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/traditional/segment/test_train_data.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/traditional/segment/u_net.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/LearnDeepLearning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/LearnDeepLearning.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dpl/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dpl/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/traditional/.ipynb_checkpoints/setup_segnet-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/traditional/.ipynb_checkpoints/setup_segnet-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/traditional/setup_segnet.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/traditional/setup_segnet.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/traditional/segment/fcn16s_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/traditional/segment/fcn16s_net.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn16s_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="77" selection-start-line="77" selection-end-line="94" selection-end-column="18" />
+            <state relative-caret-position="203">
+              <caret line="86" column="22" lean-forward="true" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
               <folding>
                 <element signature="e#46#88#0" expanded="true" />
               </folding>
@@ -61,7 +48,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/traditional/segment/u_net.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="275">
@@ -148,8 +135,8 @@
       <find>224</find>
       <find>print</find>
       <find>3,3</find>
-      <find>BatchNormalization</find>
       <find>target_size</find>
+      <find>BatchNormalization</find>
     </findStrings>
     <replaceStrings>
       <replace>3, 3</replace>
@@ -173,8 +160,8 @@
         <option value="$PROJECT_DIR$/src/dpl/utils.py" />
         <option value="$PROJECT_DIR$/src/traditional/segment/test_train_data.py" />
         <option value="$PROJECT_DIR$/src/traditional/segment/fcn16s_net_v2.py" />
-        <option value="$PROJECT_DIR$/src/traditional/segment/fcn16s_net.py" />
         <option value="$PROJECT_DIR$/src/traditional/segment/u_net.py" />
+        <option value="$PROJECT_DIR$/src/traditional/segment/fcn16s_net.py" />
       </list>
     </option>
   </component>
@@ -268,7 +255,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.u_net">
+  <component name="RunManager" selected="Python.fcn16s_net">
     <configuration name="fcn16s_net" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LearnDeepLearning" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -383,8 +370,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.u_net" />
         <item itemvalue="Python.fcn16s_net" />
+        <item itemvalue="Python.u_net" />
         <item itemvalue="Python.fcn16s_net_v2" />
         <item itemvalue="Python.fcn32s_net_v2" />
         <item itemvalue="Python.fcn8s_net" />
@@ -632,29 +619,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn32s_net_v2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="32" lean-forward="true" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/traditional/segment/test_train_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="45" column="40" lean-forward="true" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
           <folding>
             <element signature="e#6#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn16s_net_v2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="67" column="21" lean-forward="true" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -669,22 +639,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn16s_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="77" selection-start-line="77" selection-end-line="94" selection-end-column="18" />
-          <folding>
-            <element signature="e#46#88#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/traditional/segment/u_net.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
           <folding>
             <element signature="e#8#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn16s_net_v2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="67" column="21" lean-forward="true" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn32s_net_v2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="32" lean-forward="true" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn16s_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="86" column="22" lean-forward="true" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
+          <folding>
+            <element signature="e#46#88#0" expanded="true" />
           </folding>
         </state>
       </provider>
