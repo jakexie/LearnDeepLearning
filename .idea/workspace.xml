@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc19cde2-18cc-482e-82cf-091b5417d7ba" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dpl/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/dpl/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/traditional/segment/fcn16s_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/traditional/segment/fcn16s_net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/traditional/segment/fcn32s_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/traditional/segment/fcn32s_net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/traditional/segment/fcn32s_net_v2.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/traditional/segment/fcn32s_net_v2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/traditional/segment/fcn8s_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/traditional/segment/fcn8s_net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/traditional/segment/test_train_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/traditional/segment/test_train_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/traditional/segment/u_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/traditional/segment/u_net.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +22,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn32s_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="67" selection-start-line="67" selection-end-line="134" selection-end-column="18" />
+            <state relative-caret-position="342">
+              <caret line="22" column="29" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+              <folding>
+                <element signature="e#46#76#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn16s_net.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="347">
+              <caret line="82" column="18" lean-forward="true" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
               <folding>
                 <element signature="e#46#88#0" expanded="true" />
               </folding>
@@ -25,34 +44,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dpl/data/pascal/voc_data_generator.py">
+        <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn8s_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-669">
-              <caret line="103" selection-start-line="103" selection-end-line="103" />
+            <state relative-caret-position="-31">
+              <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
               <folding>
-                <element signature="e#40#79#0" expanded="true" />
+                <element signature="e#46#76#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn16s_net.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="86" column="22" lean-forward="true" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
-              <folding>
-                <element signature="e#46#88#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/traditional/segment/u_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+            <state relative-caret-position="-913">
+              <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
               <folding>
                 <element signature="e#8#20#0" expanded="true" />
               </folding>
@@ -61,22 +68,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn32s_net_v2.py">
+        <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/keras/engine/network.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="5" column="32" lean-forward="true" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn16s_net_v2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="67" column="21" lean-forward="true" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="158" selection-start-line="158" selection-end-line="158" />
             </state>
           </provider>
         </entry>
@@ -84,38 +79,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dpl/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="270" column="39" lean-forward="true" selection-start-line="270" selection-start-column="39" selection-end-line="270" selection-end-column="39" />
+            <state relative-caret-position="185">
+              <caret line="360" column="8" selection-start-line="360" selection-start-column="8" selection-end-line="360" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/traditional/segment/test_train_data.py">
+        <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/keras/engine/training_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="45" column="40" lean-forward="true" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
-              <folding>
-                <element signature="e#6#57#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2286">
+              <caret line="137" selection-start-line="137" selection-end-line="137" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dpl/data/pascal/voc_data_generator_v2.py">
+        <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/tensorflow/python/ops/gradients_util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="42" column="31" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+            <state relative-caret-position="1663">
+              <caret line="773" selection-start-line="773" selection-end-line="773" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/traditional/segment/config.py">
+        <entry file="file://$PROJECT_DIR$/src/dpl/conv2d_transpose.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="141">
+              <caret line="232" selection-start-line="232" selection-end-line="232" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/keras/engine/base_layer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="349">
+              <caret line="507" selection-start-line="507" selection-end-line="507" />
             </state>
           </provider>
         </entry>
@@ -135,8 +136,11 @@
       <find>224</find>
       <find>print</find>
       <find>3,3</find>
-      <find>target_size</find>
       <find>BatchNormalization</find>
+      <find>size</find>
+      <find>target_size</find>
+      <find>output_shape</find>
+      <find>padding</find>
     </findStrings>
     <replaceStrings>
       <replace>3, 3</replace>
@@ -152,16 +156,16 @@
         <option value="$PROJECT_DIR$/src/traditional/test_voc_data_generator.py" />
         <option value="$PROJECT_DIR$/src/traditional/voc_data_generator_v2.py" />
         <option value="$PROJECT_DIR$/src/traditional/voc_data_generator.py" />
-        <option value="$PROJECT_DIR$/src/traditional/segment/fcn32s_net.py" />
-        <option value="$PROJECT_DIR$/src/traditional/segment/fcn8s_net.py" />
         <option value="$PROJECT_DIR$/src/dpl/data/pascal/voc_data_generator_v2.py" />
         <option value="$PROJECT_DIR$/src/traditional/segment/config.py" />
-        <option value="$PROJECT_DIR$/src/traditional/segment/fcn32s_net_v2.py" />
-        <option value="$PROJECT_DIR$/src/dpl/utils.py" />
-        <option value="$PROJECT_DIR$/src/traditional/segment/test_train_data.py" />
         <option value="$PROJECT_DIR$/src/traditional/segment/fcn16s_net_v2.py" />
-        <option value="$PROJECT_DIR$/src/traditional/segment/u_net.py" />
+        <option value="$PROJECT_DIR$/src/traditional/segment/fcn32s_net_v2.py" />
+        <option value="$PROJECT_DIR$/src/traditional/segment/test_train_data.py" />
+        <option value="$PROJECT_DIR$/src/traditional/segment/fcn32s_net.py" />
+        <option value="$PROJECT_DIR$/src/dpl/utils.py" />
         <option value="$PROJECT_DIR$/src/traditional/segment/fcn16s_net.py" />
+        <option value="$PROJECT_DIR$/src/traditional/segment/fcn8s_net.py" />
+        <option value="$PROJECT_DIR$/src/traditional/segment/u_net.py" />
       </list>
     </option>
   </component>
@@ -240,8 +244,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/traditional/segment" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/traditional/segment" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -255,7 +264,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.fcn16s_net">
+  <component name="RunManager" selected="Python.u_net">
     <configuration name="fcn16s_net" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LearnDeepLearning" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -277,7 +286,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="fcn16s_net_v2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="fcn32s_net" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LearnDeepLearning" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -289,7 +298,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/traditional/segment/fcn16s_net_v2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/traditional/segment/fcn32s_net.py" />
       <option name="PARAMETERS" value="$USER_HOME$/Data/pascal/VOC_Data/VOC2012/" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -363,18 +372,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.fcn16s_net" />
-      <item itemvalue="Python.fcn8s_net" />
       <item itemvalue="Python.fcn32s_net_v2" />
-      <item itemvalue="Python.fcn16s_net_v2" />
       <item itemvalue="Python.u_net" />
+      <item itemvalue="Python.fcn32s_net" />
+      <item itemvalue="Python.fcn8s_net" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.fcn16s_net" />
         <item itemvalue="Python.u_net" />
-        <item itemvalue="Python.fcn16s_net_v2" />
-        <item itemvalue="Python.fcn32s_net_v2" />
         <item itemvalue="Python.fcn8s_net" />
+        <item itemvalue="Python.fcn16s_net" />
+        <item itemvalue="Python.fcn32s_net" />
+        <item itemvalue="Python.fcn32s_net_v2" />
       </list>
     </recent_temporary>
   </component>
@@ -452,42 +461,20 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/traditional/segment/fcn32s_net.py</url>
-          <line>134</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/traditional/segment/fcn32s_net.py</url>
-          <line>122</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/traditional/segment/fcn32s_net.py</url>
-          <line>94</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/traditional/segment/fcn8s_net.py</url>
-          <line>121</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/src/dpl/data/pascal/voc_data_generator.py</url>
           <line>128</line>
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/traditional/segment/fcn32s_net.py</url>
+          <line>75</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/setup_traditional_cnn_mnist.ipynb" />
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/keras_preprocessing/image/iterator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
@@ -571,33 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/keras/engine/training_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn8s_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="121" selection-start-line="121" selection-end-line="121" />
-          <folding>
-            <element signature="e#46#88#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn32s_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="67" selection-start-line="67" selection-end-line="134" selection-end-column="18" />
-          <folding>
-            <element signature="e#46#88#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dpl/data/pascal/voc_data_generator_v2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="59">
@@ -612,19 +572,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dpl/utils.py">
+    <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn16s_net_v2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="270" column="39" lean-forward="true" selection-start-line="270" selection-start-column="39" selection-end-line="270" selection-end-column="39" />
+        <state relative-caret-position="357">
+          <caret line="67" column="21" lean-forward="true" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/traditional/segment/test_train_data.py">
+    <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn32s_net_v2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="45" column="40" lean-forward="true" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
+        <state relative-caret-position="351">
+          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
           <folding>
-            <element signature="e#6#57#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -639,39 +602,126 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/traditional/segment/u_net.py">
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+        <state relative-caret-position="161">
+          <caret line="3656" column="40" lean-forward="true" selection-start-line="3656" selection-start-column="40" selection-end-line="3656" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/tensorflow/python/framework/ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="435" selection-start-line="435" selection-end-line="435" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/tensorflow/python/framework/tensor_shape.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="348" selection-start-line="348" selection-end-line="348" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/tensorflow/python/framework/op_def_library.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="788" selection-start-line="788" selection-end-line="788" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/traditional/segment/test_train_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/keras/engine/base_layer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="507" selection-start-line="507" selection-end-line="507" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dpl/conv2d_transpose.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="232" selection-start-line="232" selection-end-line="232" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/tensorflow/python/ops/gradients_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1663">
+          <caret line="773" selection-start-line="773" selection-end-line="773" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/keras/engine/training_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2286">
+          <caret line="137" selection-start-line="137" selection-end-line="137" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn32s_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="22" column="29" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
           <folding>
-            <element signature="e#8#20#0" expanded="true" />
+            <element signature="e#46#76#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn16s_net_v2.py">
+    <entry file="file://$PROJECT_DIR$/src/dpl/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="67" column="21" lean-forward="true" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="185">
+          <caret line="360" column="8" selection-start-line="360" selection-start-column="8" selection-end-line="360" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn32s_net_v2.py">
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/keras/engine/network.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="32" lean-forward="true" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
+        <state relative-caret-position="323">
+          <caret line="158" selection-start-line="158" selection-end-line="158" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn16s_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="86" column="22" lean-forward="true" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
+        <state relative-caret-position="347">
+          <caret line="82" column="18" lean-forward="true" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
           <folding>
             <element signature="e#46#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/traditional/segment/fcn8s_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31">
+          <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
+          <folding>
+            <element signature="e#46#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/traditional/segment/u_net.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-913">
+          <caret line="19" column="17" lean-forward="true" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding>
+            <element signature="e#8#20#0" expanded="true" />
           </folding>
         </state>
       </provider>

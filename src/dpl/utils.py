@@ -347,3 +347,24 @@ class BilinearUpSampling2D(Layer):
         config = {'size': self.size, 'target_size': self.target_size}
         base_config = super(BilinearUpSampling2D, self).get_config()
         return dict(list(base_config.items()) + list(config.items()))
+
+from keras.layers import Conv2D, Activation
+from dpl.conv2d_transpose import Conv2DTranspose
+
+def conv2d_bn(input, nums_kernal, size, strides=1, padding = 'same'):
+    x = Conv2D(nums_kernal, size, padding=padding, strides=strides)(input)
+    #x = BatchNormalization()(x)
+    return Activation('relu')(x)
+
+# output_shape --> [batch_size, height, width, channels]
+def deconv2d_bn(input, nums_kernal, output_shape, size=(4, 4),  strides=(2,2), padding='same'):
+    if 0: # use deconvolution
+        x = Conv2DTranspose(nums_kernal, size,
+                            output_shape=(output_shape[1].value, output_shape[2].value, nums_kernal),
+                            strides=strides, padding=padding)(input)
+        #x = keras.layers.Conv2DTranspose(nums_kernal, size, strides=strides, padding=padding)(input)
+        #return Activation('relu')(x)
+        return x
+    else: # just use upsample
+        x = BilinearUpSampling2D(target_size=(output_shape[1], output_shape[2]))(input)
+        return x

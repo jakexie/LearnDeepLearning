@@ -9,6 +9,7 @@ def train_data(model, config, path):
 
     optimizer = keras.optimizers.Adam(1e-4)
     model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
+    callbacks = [keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=5, min_lr=0.001)]
 
     if 0:
         train_dataset = PascalDataset(path, is_train=True)
@@ -35,22 +36,23 @@ def train_data(model, config, path):
         train_generator = datagen.flow_from_imageset(
             class_mode='categorical',
             classes=21,
-            batch_size=5,
+            batch_size=config.batch_size,
             shuffle=True,
             image_set_loader=train_loader)
         val_generator = datagen.flow_from_imageset(
             class_mode='categorical',
             classes=21,
-            batch_size=5,
+            batch_size=config.batch_size,
             shuffle=True,
             image_set_loader=val_loader)
 
     workers = 1  # multiprocessing.cpu_count()
 
     model.fit_generator(train_generator, steps_per_epoch=config.steps_per_epoch, epochs=config.epochs,
-                        use_multiprocessing=False, max_queue_size=100, workers=workers
+                        use_multiprocessing=False, max_queue_size=100, workers=workers, callbacks=callbacks,
+                        validation_data=val_generator, validation_steps=config.validation_steps
                         )
-    #                     validation_data=val_generator, validation_steps=config.validation_steps
+    #
     scores = model.evaluate_generator(val_generator, steps=1000)
     print("loss: ", scores[0])
     print("acc: ", scores[1])

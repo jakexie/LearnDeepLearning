@@ -1,15 +1,10 @@
 # fcn 16s
 # 直接从 pool4 上采样（反卷级）到原尺寸
 # 5 layers
-from keras.models import Model, Sequential
-from keras.layers import Conv2D, Conv2DTranspose, MaxPooling2D, Dropout, UpSampling2D
-from keras.layers import Input, ZeroPadding2D, BatchNormalization, Activation
-
-
-def conv2d_bn(input, nums_kernal, size, strides=1, padding='same'):
-    x = Conv2D(nums_kernal, size, padding=padding, strides=strides)(input)
-    x = BatchNormalization()(x)
-    return Activation('relu')(x)
+from keras.models import Model
+from keras.layers import MaxPooling2D, Dropout
+from keras.layers import Input, Activation
+from dpl.utils import conv2d_bn, deconv2d_bn
 
 
 def create_fcn16s(input_size=(512, 512, 3)):
@@ -53,22 +48,15 @@ def create_fcn16s(input_size=(512, 512, 3)):
 
     # 上采样2倍 = pool4 size
     drop_2_u = conv2d_bn(drop_2, 21, (1, 1))
-    # deconv_1 = Conv2DTranspose(21, (64,64), strides=32)(drop_2_n)
 
-    ratio_1 = (int(pool4.shape[1].value / drop_2_u.shape[1].value), int(pool4.shape[2].value / drop_2_u.shape[2].value))
-    print("ratio_1: ", ratio_1)
-    bilinear_inter_1 = UpSampling2D(ratio_1)(drop_2_u)
-    deconv_1 = conv2d_bn(bilinear_inter_1, 21, (1, 1))
+    deconv_1 = deconv2d_bn(drop_2_u, 21, output_shape=pool4.shape)
 
     # merge(+)
     pool4_u = conv2d_bn(pool4, 21, (1, 1))
     merge_1 = keras.layers.add([deconv_1, pool4_u])
 
     # upsample 16
-    ratio_2 = (int(input.shape[1].value / merge_1.shape[1].value), int(input.shape[2].value / merge_1.shape[2].value))
-    print("ratio_2: ", ratio_2)
-    bilinear_inter_2 = UpSampling2D(ratio_2)(merge_1)
-    deconv_2 = conv2d_bn(bilinear_inter_2, 21, (1, 1))
+    deconv_2 = deconv_1 = deconv2d_bn(merge_1, 21, size=32, strides=16, output_shape=input.shape)
 
     output = Activation('softmax')(deconv_2)
 
@@ -83,8 +71,8 @@ def main(argv):
     config = Config()
     config.batch_size = 10
     config.steps_per_epoch = 100
-    config.validation_steps = 100
-    config.epochs = 10
+    config.validation_steps = 20
+    config.epochs = 1
     config.image_min_dims = 256
     config.image_max_dims = 256
     model = create_fcn16s((config.image_min_dims, config.image_min_dims, 3))

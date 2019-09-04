@@ -1,0 +1,36 @@
+# 仅使用双线性插值上采样
+fcn32 batch_size=10 epoch=10 image_size = 256*256 510ms/step
+    loss:  1.2500237786471844
+    acc:  0.7364851784408093
+fcn32s_v2
+    loss:  1.1920930376163597e-07
+    acc:  0.7363755985498428
+
+fcn16s batch_size=10 epoch=10 上采样最近邻插值
+    loss:  2.28040821659565
+    acc:  0.5952971381545067
+
+fcn16s batch_size=10 epoch=10 双线性插值
+    loss:  2.2461881176233294
+    acc:  0.6072100523710251
+
+fcn16s 双线性插值 - BatchNormalization
+    loss:  1.2227311471700668
+    acc:  0.7375168851613998
+
+fcn16s 双线性插值 - BatchNormalization + val_data
+    loss:  1.2134447411298752
+    acc:  0.7365232219099999
+
+fcn16s 双线性插值 - BatchNormalization + val_data + 降低学习率
+    loss:  1.1680069099664687
+    acc:  0.7364775671362876
+
+fcn8s 双线性插值 - BatchNormalization + val_data + 降低学习率
+    loss:  1.1859217648506164
+    acc:  0.7381476854681969
+
+# 使用反卷积
+fcn32 batch_size=10 epoch=10 image_size = 256*256 532ms/step
+loss:  1.234193692445755
+acc:  0.7365197283625603

@@ -7,7 +7,7 @@ from keras.layers import Activation, Input, BatchNormalization
 
 def conv2d_bn(input, nums_kernal, size, strides=1, padding = 'same'):
     x = Conv2D(nums_kernal, size, padding=padding, strides=strides)(input)
-    x = BatchNormalization()(x)
+    #x = BatchNormalization()(x)
     return Activation('relu')(x)
 
 
