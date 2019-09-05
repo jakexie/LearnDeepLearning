@@ -65,15 +65,15 @@ from test_train_data import *
 
 def main(argv):
     config = Config()
-    config.batch_size = 10
-    config.steps_per_epoch = 100
-    config.validation_steps = 100
-    config.epochs = 1
+    config.batch_size = 20
+    config.steps_per_epoch = 70
+    config.validation_steps = 10
+    config.epochs = 176
     config.image_min_dims = 256
     config.image_max_dims = 256
     model = create_fcn32s((config.image_min_dims, config.image_min_dims, 3))
-    train_data(model, config, argv[1])
-    #print(model.summary())
+    #train_data(model, config, argv[1])
+    print(model.summary())
 
 import sys
 if __name__ == "__main__":

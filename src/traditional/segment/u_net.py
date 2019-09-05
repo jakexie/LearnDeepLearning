@@ -75,10 +75,10 @@ from test_train_data import *
 
 def main(argv):
     config = Config()
-    config.batch_size = 1
-    config.steps_per_epoch = 500
+    config.batch_size = 10
+    config.steps_per_epoch = 100
     config.validation_steps = 100
-    config.epochs = 10
+    config.epochs = 1
     config.image_min_dims = 256
     config.image_max_dims = 256
     model = create_unet((config.image_min_dims, config.image_min_dims, 3))

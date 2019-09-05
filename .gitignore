@@ -1,6 +1,6 @@
 data
 paper
-src/traditional/log
+src/traditional/logs
 src/traditional/check_points
 **__pycache__
 **.ipynb_checkpoints

@@ -56,7 +56,7 @@ def create_fcn16s(input_size=(512, 512, 3)):
     merge_1 = keras.layers.add([deconv_1, pool4_u])
 
     # upsample 16
-    deconv_2 = deconv_1 = deconv2d_bn(merge_1, 21, size=32, strides=16, output_shape=input.shape)
+    deconv_2 = deconv2d_bn(merge_1, 21, size=32, strides=16, output_shape=input.shape)
 
     output = Activation('softmax')(deconv_2)
 
@@ -69,10 +69,10 @@ from test_train_data import *
 
 def main(argv):
     config = Config()
-    config.batch_size = 10
-    config.steps_per_epoch = 100
-    config.validation_steps = 20
-    config.epochs = 1
+    config.batch_size = 20
+    config.steps_per_epoch = 70
+    config.validation_steps = 10
+    config.epochs = 176
     config.image_min_dims = 256
     config.image_max_dims = 256
     model = create_fcn16s((config.image_min_dims, config.image_min_dims, 3))

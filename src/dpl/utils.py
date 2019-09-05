@@ -350,15 +350,18 @@ class BilinearUpSampling2D(Layer):
 
 from keras.layers import Conv2D, Activation
 from dpl.conv2d_transpose import Conv2DTranspose
+from keras.regularizers import l2
 
-def conv2d_bn(input, nums_kernal, size, strides=1, padding = 'same'):
-    x = Conv2D(nums_kernal, size, padding=padding, strides=strides)(input)
+
+def conv2d_bn(input, nums_kernal, size, strides=1, padding='same', weight_decay=0):
+    x = Conv2D(nums_kernal, size, padding=padding, strides=strides, kernel_regularizer=l2(weight_decay))(input)
     #x = BatchNormalization()(x)
     return Activation('relu')(x)
 
+
 # output_shape --> [batch_size, height, width, channels]
 def deconv2d_bn(input, nums_kernal, output_shape, size=(4, 4),  strides=(2,2), padding='same'):
-    if 0: # use deconvolution
+    if 1: # use deconvolution
         x = Conv2DTranspose(nums_kernal, size,
                             output_shape=(output_shape[1].value, output_shape[2].value, nums_kernal),
                             strides=strides, padding=padding)(input)
@@ -368,3 +371,48 @@ def deconv2d_bn(input, nums_kernal, output_shape, size=(4, 4),  strides=(2,2), p
     else: # just use upsample
         x = BilinearUpSampling2D(target_size=(output_shape[1], output_shape[2]))(input)
         return x
+
+
+def iou(y_true, y_pred, label: int):
+    """
+    Return the Intersection over Union (IoU) for a given label.
+    Args:
+        y_true: the expected y values as a one-hot
+        y_pred: the predicted y values as a one-hot or softmax output
+        label: the label to return the IoU for
+    Returns:
+        the IoU for the given label
+    """
+    # extract the label values using the argmax operator then
+    # calculate equality of the predictions and truths to the label
+    y_true = K.cast(K.equal(K.argmax(y_true), label), K.floatx())
+    y_pred = K.cast(K.equal(K.argmax(y_pred), label), K.floatx())
+    # calculate the |intersection| (AND) of the labels
+    intersection = K.sum(y_true * y_pred)
+    # calculate the |union| (OR) of the labels
+    union = K.sum(y_true) + K.sum(y_pred) - intersection
+    # avoid divide by zero - if the union is zero, return 1
+    # otherwise, return the intersection over union
+    return K.switch(K.equal(union, 0), 1.0, intersection / union)
+        
+ 
+def mean_iou(y_true, y_pred):
+    """
+    Return the Intersection over Union (IoU) score.
+    Args:
+        y_true: the expected y values as a one-hot
+        y_pred: the predicted y values as a one-hot or softmax output
+    Returns:
+        the scalar IoU value (mean over all labels)
+    """
+    # get number of labels to calculate IoU for
+    num_labels = K.int_shape(y_pred)[-1] - 1
+    # initialize a variable to store total IoU in
+    mean_iou = K.variable(0)
+    
+    # iterate over labels to calculate IoU for
+    for label in range(num_labels):
+        mean_iou = mean_iou + iou(y_true, y_pred, label)
+        
+    # divide total IoU by number of labels to get mean IoU
+    return mean_iou / num_labels

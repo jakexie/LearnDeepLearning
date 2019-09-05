@@ -1,15 +1,22 @@
 
 from dpl.data.pascal.voc_data_generator_v2 import *
 from dpl.data.pascal.voc_data_generator import *
+from dpl import utils
+from keras.optimizers import SGD
 import yaml
 import keras
-
+from PIL import Image
 
 def train_data(model, config, path):
 
-    optimizer = keras.optimizers.Adam(1e-4)
-    model.compile(optimizer=optimizer, loss='categorical_crossentropy', metrics=['accuracy'])
-    callbacks = [keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=5, min_lr=0.001)]
+    #optimizer = keras.optimizers.Adam(1e-4)
+    sgd = SGD(lr=1e-4, momentum=0.9)
+    metrics=["accuracy"]#, utils.mean_iou]
+    model_name = str(model.name)
+    model.compile(optimizer=sgd, loss='categorical_crossentropy', metrics=metrics)
+    callbacks = [#keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=5, min_lr=0.001),
+                 keras.callbacks.ModelCheckpoint("../check_points/"+model_name+"_weights.hdf5", save_weights_only=True),
+                 keras.callbacks.TensorBoard(log_dir='../logs')]
 
     if 0:
         train_dataset = PascalDataset(path, is_train=True)
@@ -45,6 +52,7 @@ def train_data(model, config, path):
             batch_size=config.batch_size,
             shuffle=True,
             image_set_loader=val_loader)
+        batch = next(val_generator)
 
     workers = 1  # multiprocessing.cpu_count()
 
@@ -53,7 +61,16 @@ def train_data(model, config, path):
                         validation_data=val_generator, validation_steps=config.validation_steps
                         )
     #
-    scores = model.evaluate_generator(val_generator, steps=1000)
+    scores = model.evaluate_generator(val_generator, steps=100)
+
+    # predict
+    predicts = model.predict_on_batch(batch[0])
+    imgs = np.argmax(predicts, axis=-1).astype(np.uint8)
+    result = Image.fromarray(imgs[0], mode='P')
+    result.save("test_infer.png")
+
+    print(len(scores))
     print("loss: ", scores[0])
     print("acc: ", scores[1])
+    #print("mean iou", scores[2])
 

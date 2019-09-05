@@ -30,7 +30,35 @@ fcn8s 双线性插值 - BatchNormalization + val_data + 降低学习率
     loss:  1.1859217648506164
     acc:  0.7381476854681969
 
+==
+fcn32s with l2(weight_decay=5e-4) batch_size=20 epochs=1 steps=70
+    loss:  7.454261026382446
+    acc:  0.736596885919571
+    mean iou 0.26582984909415247
+
+fcn32s batch_size=20 epochs=1 steps=70
+    loss:  2.990401854515076
+    acc:  0.7362994331121445
+    mean iou 0.2653149762749672
+
+fcn8s batch_size=10 epochs=1 steps=100
+    loss:  2.614128065109253
+    acc:  0.7357651183009147
+    mean iou 0.5007882639765739
+
+fcn16s batch_size=10 epochs=1 steps=100
+    loss:  2.795568745136261
+    acc:  0.7411434954404831
+    mean iou 0.48105718165636063
+
+fcn8s batch_size=10 epochs=1 steps=100
+    loss:  2.7917424297332762
+    acc:  0.736125317811966
+    mean iou 0.4953062742948532
+
 # 使用反卷积
 fcn32 batch_size=10 epoch=10 image_size = 256*256 532ms/step
 loss:  1.234193692445755
 acc:  0.7365197283625603
+
+
