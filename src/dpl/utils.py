@@ -353,8 +353,8 @@ from dpl.conv2d_transpose import Conv2DTranspose
 from keras.regularizers import l2
 
 
-def conv2d_bn(input, nums_kernal, size, strides=1, padding='same', weight_decay=0):
-    x = Conv2D(nums_kernal, size, padding=padding, strides=strides, kernel_regularizer=l2(weight_decay))(input)
+def conv2d_bn(input, nums_kernel, size, strides=1, padding='same', weight_decay=0, name=None):
+    x = Conv2D(nums_kernel, size, padding=padding, strides=strides, kernel_regularizer=l2(weight_decay), name=name)(input)
     #x = BatchNormalization()(x)
     return Activation('relu')(x)
 

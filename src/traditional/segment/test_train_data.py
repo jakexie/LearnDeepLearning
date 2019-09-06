@@ -67,7 +67,7 @@ def train_data(model, config, path):
     predicts = model.predict_on_batch(batch[0])
     imgs = np.argmax(predicts, axis=-1).astype(np.uint8)
     result = Image.fromarray(imgs[0], mode='P')
-    result.save("test_infer.png")
+    result.save("../logs/test_infer.png")
 
     print(len(scores))
     print("loss: ", scores[0])

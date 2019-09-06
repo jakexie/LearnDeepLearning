@@ -1,6 +1,7 @@
 data
 paper
 src/traditional/logs
+src/traditional/segment/pretrained_weights
 src/traditional/check_points
 **__pycache__
 **.ipynb_checkpoints
