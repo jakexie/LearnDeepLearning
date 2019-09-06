@@ -1,68 +1,50 @@
 # vgg 16
-from keras.models import Sequential
-from keras.layers import Conv2D, Dense, MaxPool2D, BatchNormalization, Dropout, Flatten
+from keras.models import Model
+from keras.layers import Dense, MaxPooling2D, Dropout, Flatten, Input
+from dpl.utils import conv2d_bn
 
 
-def create_vgg16_net():
-    model = Sequential()
-    # 64
-    model.add(Conv2D(64, (3,3), activation='relu', padding='same', input_shape=(224,224,3)))
-    print("conv_1: ", model.output_shape)
-    model.add(Conv2D(64, (3,3), activation='relu', padding='same'))
-    print("conv_2: ", model.output_shape)
-    model.add(MaxPool2D())
-    print("max_pool_1: ", model.output_shape)
+def create_vgg16_net(input_shape=(224, 224, 3), num_classes=1000):
+    # model = Sequential()
+    # preprocessing
+    input_layer = Input(input_shape)
+    # x = ZeroPadding2D(100)(input)
+    # block1 2conv  1/2
+    x = conv2d_bn(input_layer, 64, (3, 3), name='block1_conv1')
+    x = conv2d_bn(x, 64, (3, 3), name='block1_conv2')
+    pool1 = MaxPooling2D(name='block1_pool')(x)
 
-    #128
-    model.add(Conv2D(128, (3,3), activation='relu', padding='same'))
-    print("conv_3: ", model.output_shape)
-    model.add(Conv2D(128, (3,3), activation='relu', padding='same'))
-    print("conv_4: ", model.output_shape)
-    model.add(MaxPool2D())
-    print("max_pool_2: ", model.output_shape)
+    # block2 2conv 1/4
+    x = conv2d_bn(pool1, 128, (3, 3), name='block2_conv1')
+    x = conv2d_bn(x, 128, (3, 3), name='block2_conv2')
+    pool2 = MaxPooling2D(name='block2_pool')(x)
 
-    #256
-    model.add(Conv2D(256, (3,3), activation='relu', padding='same'))
-    print("conv_5: ", model.output_shape)
-    model.add(Conv2D(256, (3,3), activation='relu', padding='same'))
-    print("conv_6: ", model.output_shape)
-    model.add(Conv2D(256, (1,1), activation='relu', padding='same'))
-    print("conv_7: ", model.output_shape)
-    model.add(MaxPool2D())
-    print("max_pool_3: ", model.output_shape)
+    # block3 3conv 1/8
+    x = conv2d_bn(pool2, 256, (3, 3), name='block3_conv1')
+    x = conv2d_bn(x, 256, (3, 3), name='block3_conv2')
+    x = conv2d_bn(x, 256, (3, 3), name='block3_conv3')
+    pool3 = MaxPooling2D(name='block3_pool')(x)
 
-    #512
-    model.add(Conv2D(512, (3,3), activation='relu', padding='same'))
-    print("conv_8: ", model.output_shape)
-    model.add(Conv2D(512, (3,3), activation='relu', padding='same'))
-    print("conv_9: ", model.output_shape)
-    model.add(Conv2D(512, (1,1), activation='relu', padding='same'))
-    print("conv_10: ", model.output_shape)
-    model.add(MaxPool2D())
-    print("max_pool_4: ", model.output_shape)
+    # block4 3conv 1/16
+    x = conv2d_bn(pool3, 512, (3, 3), name='block4_conv1')
+    x = conv2d_bn(x, 512, (3, 3), name='block4_conv2')
+    x = conv2d_bn(x, 512, (3, 3), name='block4_conv3')
+    pool4 = MaxPooling2D(name='block4_pool')(x)
 
-    #512
-    model.add(Conv2D(512, (3,3), activation='relu', padding='same'))
-    print("conv_11: ", model.output_shape)
-    model.add(Conv2D(512, (3,3), activation='relu', padding='same'))
-    print("conv_12: ", model.output_shape)
-    model.add(Conv2D(512, (1,1), activation='relu', padding='same'))
-    print("conv_13: ", model.output_shape)
-    model.add(MaxPool2D())
-    print("max_pool_5: ", model.output_shape)
+    # block5 3conv 1/32
+    x = conv2d_bn(pool4, 512, (3, 3), name='block5_conv1')
+    x = conv2d_bn(x, 512, (3, 3), name='block5_conv2')
+    x = conv2d_bn(x, 512, (3, 3), name='block5_conv3')
+    pool5 = MaxPooling2D(name='block5_pool')(x)
 
-    model.add(Flatten())
-    model.add(Dense(4096, activation='relu'))
-    model.add(Dropout(0.5))
-    print("full_1: ", model.output_shape)
-    model.add(Dense(4096, activation='relu'))
-    model.add(Dropout(0.5))
-    print("full_2: ", model.output_shape)
-    model.add(Dense(1000, activation='relu'))
-    model.add(Dropout(0.5))
-    print("full_3: ", model.output_shape)
-    model.add(Dense(10, activation='softmax'))
-    print("output: ", model.output_shape)
+    x = Flatten(name='flatten')(pool5)
+    x = Dense(4096, activation='relu', name='fc1')(x)
+    x = Dropout(0.5)(x)
+    x = Dense(4096, activation='relu', name='fc2')(x)
+    x = Dropout(0.5)(x)
+    x = Dense(num_classes, activation='softmax', name='predictions')(x)
+
+    model = Model(input_layer, x, name='vgg16_net')
 
     return model
 

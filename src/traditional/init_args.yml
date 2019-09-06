@@ -4,8 +4,8 @@ image_set_loader:
     image_dir: /home/super-workstation/Data/pascal/VOC_Data/VOC2012/JPEGImages/
     label_dir: /home/super-workstation/Data/pascal/VOC_Data/VOC2012/SegmentationClass
     target_size:
-      - 256
-      - 256
+      - 224
+      - 224
     image_format: 'jpg'
     color_mode: 'rgb'
     label_format: 'png'
@@ -14,8 +14,8 @@ image_set_loader:
     image_dir: /home/super-workstation/Data/pascal/VOC_Data/VOC2012/JPEGImages/
     label_dir: /home/super-workstation/Data/pascal/VOC_Data/VOC2012/SegmentationClass
     target_size:
-      - 256
-      - 256
+      - 224
+      - 224
     image_format: 'jpg'
     color_mode: 'rgb'
     label_format: 'png'
@@ -24,8 +24,8 @@ image_set_loader:
     image_dir: /home/super-workstation/Data/pascal/VOC_Data/VOC2012/JPEGImages/
     label_dir: /home/super-workstation/Data/pascal/VOC_Data/VOC2012/SegmentationClass
     target_size:
-      - 256
-      - 256
+      - 224
+      - 224
     image_format: 'jpg'
     color_mode: 'rgb'
     label_format: 'png'

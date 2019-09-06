@@ -28,7 +28,7 @@ def showSingleImage(image):
         print("channels --> ", image.shape[2])
     plt.xticks([])
     plt.yticks([])
-    plt.imshow(image, cmap=plt.cm.binary)
+    plt.imshow(image)#, cmap=plt.cm.binary)
     plt.show()
 
 # alexnet 网络预处理
@@ -353,18 +353,18 @@ from dpl.conv2d_transpose import Conv2DTranspose
 from keras.regularizers import l2
 
 
-def conv2d_bn(input, nums_kernel, size, strides=1, padding='same', weight_decay=0, name=None):
+def conv2d_bn(input, nums_kernel, size, strides=1, padding='same', weight_decay=5e-4, name=None):
     x = Conv2D(nums_kernel, size, padding=padding, strides=strides, kernel_regularizer=l2(weight_decay), name=name)(input)
     #x = BatchNormalization()(x)
     return Activation('relu')(x)
 
 
 # output_shape --> [batch_size, height, width, channels]
-def deconv2d_bn(input, nums_kernal, output_shape, size=(4, 4),  strides=(2,2), padding='same'):
+def deconv2d_bn(input, nums_kernal, output_shape, size=(4, 4),  strides=(2,2), padding='same', name=None):
     if 1: # use deconvolution
         x = Conv2DTranspose(nums_kernal, size,
                             output_shape=(output_shape[1].value, output_shape[2].value, nums_kernal),
-                            strides=strides, padding=padding)(input)
+                            strides=strides, padding=padding, name=name)(input)
         #x = keras.layers.Conv2DTranspose(nums_kernal, size, strides=strides, padding=padding)(input)
         #return Activation('relu')(x)
         return x

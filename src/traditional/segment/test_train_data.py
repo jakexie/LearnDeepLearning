@@ -9,14 +9,14 @@ from PIL import Image
 
 def train_data(model, config, path):
 
-    #optimizer = keras.optimizers.Adam(1e-4)
+    adam = keras.optimizers.Adam(1e-4)
     sgd = SGD(lr=1e-4, momentum=0.9)
     metrics=["accuracy"]#, utils.mean_iou]
     model_name = str(model.name)
-    model.compile(optimizer=sgd, loss='categorical_crossentropy', metrics=metrics)
+    model.compile(optimizer=adam, loss='categorical_crossentropy', metrics=metrics)
     callbacks = [#keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=5, min_lr=0.001),
                  keras.callbacks.ModelCheckpoint("../check_points/"+model_name+"_weights.hdf5", save_weights_only=True),
-                 keras.callbacks.TensorBoard(log_dir='../logs')]
+                 keras.callbacks.TensorBoard(log_dir='../logs', update_freq='batch')]
 
     if 0:
         train_dataset = PascalDataset(path, is_train=True)

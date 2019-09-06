@@ -7,9 +7,7 @@ from keras.layers import Input, Activation
 from dpl.utils import conv2d_bn, deconv2d_bn
 
 
-def create_fcn8s(input_size=(512, 512, 3)):
-    # model = Sequential()
-    # preprocessing
+def create_fcn8s(input_size=(512, 512, 3), classes=21):
     input_layer = Input(shape=(input_size))
     # x = ZeroPadding2D(100)(input)
     # block1 2conv  1/2
@@ -47,26 +45,26 @@ def create_fcn8s(input_size=(512, 512, 3)):
     drop_2 = Dropout(0.5)(full_2)
 
     # 上采样2倍 = pool4 size
-    drop_2_n = conv2d_bn(drop_2, 21, (1, 1))
+    drop_2_n = conv2d_bn(drop_2, classes, (1, 1))
 
-    deconv_1 = deconv2d_bn(drop_2_n, 21, output_shape=pool4.shape)
+    deconv_1 = deconv2d_bn(drop_2_n, classes, output_shape=pool4.shape)
 
     # merge(+)
-    pool4_u = conv2d_bn(pool4, 21, (1, 1))
+    pool4_u = conv2d_bn(pool4, classes, (1, 1))
     # TODO: resize for width/height not in 32 64 128 256 ...
     # pool4_c = utils.resize_images_bilinear(pool4_u, target_height=bilinear_inter_1.shape[0],
     # target_weight=bilinear_inter_1.shape[1])
     merge_1 = keras.layers.add([deconv_1, pool4_u])
 
     # upsample to merge pool3
-    deconv_2 = deconv2d_bn(merge_1, 21, output_shape=pool3.shape)
+    deconv_2 = deconv2d_bn(merge_1, classes, output_shape=pool3.shape)
 
     # merge
-    pool3_u = conv2d_bn(pool3, 21, (1, 1))
+    pool3_u = conv2d_bn(pool3, classes, (1, 1))
     merge_2 = keras.layers.add([deconv_2, pool3_u])
 
     # upsample 8
-    deconv_3 = deconv2d_bn(merge_2, 21, strides=8, size=16, output_shape=input_layer.shape)
+    deconv_3 = deconv2d_bn(merge_2, classes, strides=8, size=16, output_shape=input_layer.shape)
 
     output = Activation('softmax')(deconv_3)
 

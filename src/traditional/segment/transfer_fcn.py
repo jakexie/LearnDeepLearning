@@ -8,13 +8,12 @@ from keras.regularizers import l2
 from keras.layers import *
 from keras.models import model_from_json
 from keras.utils import np_utils
-from keras.applications.vgg16 import *
+# from keras.applications.vgg16 import *
 from keras.applications.resnet50 import *
 import keras.backend as K
 import tensorflow as tf
 
-#from get_weights_path import *
-#from resnet_helpers import *
+from traditional.cnn.vgg16_net import *
 
 # input_path --> pre-trained vgg 16 tf model
 # output_path --> convert weight to fcn format(convert full layer weight from Dense to Conv2D shape)
@@ -56,7 +55,7 @@ def transfer_FCN_Vgg16(input_path = './pretrained_weights/vgg16_weights_tf_dim_o
     # Convolutional layers transfered from fully-connected layers
     x = Conv2D(4096, (7, 7), activation='relu', padding='same', name='fc1')(x)
     x = Conv2D(4096, (1, 1), activation='relu', padding='same', name='fc2')(x)
-    x = Conv2D(1000, (1, 1), activation='linear', name='predictions')(x)
+    x = Conv2D(1000, (1, 1), activation='linear', name='predictions_1000')(x)
     #x = Reshape((7,7))(x)
 
     # Create model
@@ -65,13 +64,14 @@ def transfer_FCN_Vgg16(input_path = './pretrained_weights/vgg16_weights_tf_dim_o
 
     #transfer if weights have not been created
     if os.path.isfile(output_path) == False:
-        # flattened_layers = model.layers
-        # index = {}
-        # for layer in flattened_layers:
-        #     if layer.name:
-        #         index[layer.name]=layer
-        # vgg16 = VGG16()
-        model.load_weights(input_path, by_name=True)
+        flattened_layers = model.layers
+        # map name to layer
+        indices_map = {}
+        for layer in flattened_layers:
+            if layer.name:
+                indices_map[layer.name]=layer
+        vgg16 = create_vgg16_net()
+        vgg16.load_weights(input_path, by_name=True)
         for layer in vgg16.layers:
             weights = layer.get_weights()
             if layer.name=='fc1':
@@ -81,8 +81,8 @@ def transfer_FCN_Vgg16(input_path = './pretrained_weights/vgg16_weights_tf_dim_o
             elif layer.name=='predictions':
                 layer.name='predictions_1000'
                 weights[0] = np.reshape(weights[0], (1,1,4096,1000))
-            # if index.has_key(layer.name):
-            #     index[layer.name].set_weights(weights)
+            if layer.name in indices_map:
+                indices_map[layer.name].set_weights(weights)
         model.save_weights(output_path)
         print( 'Successfully transformed!')
     #else load weights
