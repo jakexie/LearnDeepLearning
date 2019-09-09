@@ -7,16 +7,16 @@ import yaml
 import keras
 from PIL import Image
 
-def train_data(model, config, path):
+def train_data(model, config, path = "../"):
 
     adam = keras.optimizers.Adam(1e-4)
     sgd = SGD(lr=1e-4, momentum=0.9)
     metrics=["accuracy"]#, utils.mean_iou]
     model_name = str(model.name)
-    model.compile(optimizer=adam, loss='categorical_crossentropy', metrics=metrics)
+    model.compile(optimizer=sgd, loss='categorical_crossentropy', metrics=metrics)
     callbacks = [#keras.callbacks.ReduceLROnPlateau(monitor='val_loss', factor=0.2, patience=5, min_lr=0.001),
                  keras.callbacks.ModelCheckpoint("../check_points/"+model_name+"_weights.hdf5", save_weights_only=True),
-                 keras.callbacks.TensorBoard(log_dir='../logs', update_freq='batch')]
+                 keras.callbacks.TensorBoard(log_dir='../logs/'+model_name, update_freq='batch')]
 
     if 0:
         train_dataset = PascalDataset(path, is_train=True)
@@ -25,7 +25,7 @@ def train_data(model, config, path):
         train_generator = data_generator(train_dataset, config)
         val_generator = data_generator(val_dataset, config)
     else:
-        with open("../init_args.yml", 'r') as stream:
+        with open("../init_args_aug.yml", 'r') as stream:
             try:
                 init_args = yaml.load(stream)
             except yaml.YAMLError as exc:
@@ -52,7 +52,6 @@ def train_data(model, config, path):
             batch_size=config.batch_size,
             shuffle=True,
             image_set_loader=val_loader)
-        batch = next(val_generator)
 
     workers = 1  # multiprocessing.cpu_count()
 
@@ -64,10 +63,10 @@ def train_data(model, config, path):
     scores = model.evaluate_generator(val_generator, steps=100)
 
     # predict
-    predicts = model.predict_on_batch(batch[0])
-    imgs = np.argmax(predicts, axis=-1).astype(np.uint8)
-    result = Image.fromarray(imgs[0], mode='P')
-    result.save("../logs/test_infer.png")
+    # predicts = model.predict_on_batch(batch[0])
+    # imgs = np.argmax(predicts, axis=-1).astype(np.uint8)
+    # result = Image.fromarray(imgs[0], mode='P')
+    # result.save("../logs/test_infer.png")
 
     print(len(scores))
     print("loss: ", scores[0])

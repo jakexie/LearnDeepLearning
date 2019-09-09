@@ -56,8 +56,8 @@ def create_fcn32s_v2(input_shape=None, weight_decay=0., batch_momentum=0.9, batc
 
     model = Model(img_input, x, name="fcn32s_v2")
 
-    #weights_path = os.path.expanduser(os.path.join('~', '.keras/models/fcn_vgg16_weights_tf_dim_ordering_tf_kernels.h5'))
-    #model.load_weights(weights_path, by_name=True)
+    weights_path = "./pretrained_weights/vgg16_weights_transfered2fcn.h5"
+    model.load_weights(weights_path, by_name=True)
     return model
 
 
@@ -67,14 +67,14 @@ from test_train_data import *
 def main(argv):
 
     config = Config()
-    config.batch_size = 1
-    config.steps_per_epoch = 500
-    config.validation_steps = 100
-    config.epochs = 1
-    config.image_min_dims = 500
-    config.image_max_dims = 500
+    config.batch_size = 32
+    config.steps_per_epoch = 256
+    config.validation_steps = 23
+    config.epochs = 10
+    config.image_min_dims = 224
+    config.image_max_dims = 224
     model = create_fcn32s_v2((config.image_min_dims, config.image_min_dims, 3))
-    train_data(model, config, argv[1])
+    train_data(model, config)
 
 import sys
 if __name__ == "__main__":

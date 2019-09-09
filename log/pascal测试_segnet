@@ -62,3 +62,15 @@ loss:  1.234193692445755
 acc:  0.7365197283625603
 
 
+# 使用预训练权重
+fcn32 batch_size=20 epoch=176 image_size = 224*224 532ms/step adm
+loss:  1.2076818066835404
+acc:  0.768732522726059
+
+fcn16 batch_size=20 epoch=176 image_size = 224*224 532ms/step sgd
+loss:  2.2120405220985413
+acc:  0.7570486181974411
+
+fcn8s batch_size=20 epoch=176 image_size = 224*224 532ms/step sgd
+loss:  2.357410045862198
+acc:  0.735587323307991

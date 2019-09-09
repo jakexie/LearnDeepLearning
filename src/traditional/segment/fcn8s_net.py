@@ -44,9 +44,9 @@ def create_fcn8s(input_size=(512, 512, 3), classes=21):
     full_2 = conv2d_bn(drop_1, 4096, (1, 1), name='fc2')
     drop_2 = Dropout(0.5)(full_2)
 
-    # 上采样2倍 = pool4 size
     drop_2_n = conv2d_bn(drop_2, classes, (1, 1))
 
+    # 上采样2倍 = pool4 size
     deconv_1 = deconv2d_bn(drop_2_n, classes, output_shape=pool4.shape)
 
     # merge(+)
@@ -77,16 +77,18 @@ from test_train_data import *
 from transfer_fcn import transfer_FCN_Vgg16
 
 def main(argv):
-    transfer_FCN_Vgg16()
+#    transfer_FCN_Vgg16()
 
     config = Config()
-    config.batch_size = 10
-    config.steps_per_epoch = 100
-    config.validation_steps = 20
-    config.epochs = 1
-    config.image_min_dims = 256
-    config.image_max_dims = 256
+    config.batch_size = 20
+    config.steps_per_epoch = 70
+    config.validation_steps = 10
+    config.epochs = 176
+    config.image_min_dims = 224
+    config.image_max_dims = 224
     model = create_fcn8s((config.image_min_dims, config.image_min_dims, 3))
+    pretrained_path = "./pretrained_weights/vgg16_weights_transfered2fcn.h5"
+    model.load_weights(pretrained_path, by_name=True)
     train_data(model, config, argv[1])
 
 import sys

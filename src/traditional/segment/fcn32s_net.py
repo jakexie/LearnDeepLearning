@@ -65,18 +65,19 @@ from transfer_fcn import *
 def main(argv):
     #transfer_FCN_Vgg16()
     config = Config()
-    config.batch_size = 20
-    config.steps_per_epoch = 70
-    config.validation_steps = 10
-    config.epochs = 176
+    config.batch_size = 32
+    config.steps_per_epoch = 265
+    config.validation_steps = 23 # total 736 val data
+    config.epochs = 50
     config.image_min_dims = 224
     config.image_max_dims = 224
     model = create_fcn32s((config.image_min_dims, config.image_min_dims, 3))
-    pretrained_path = "./pretrained_weights/vgg16_weights_transfered2fcn.h5"
+    #pretrained_path = "./pretrained_weights/vgg16_weights_transfered2fcn.h5"
+    pretrained_path = "../check_points/fcn32s_net_weights_epoch10.hdf5"
     model.load_weights(pretrained_path, by_name=True)
     layer = model.get_layer(name='block1_conv1')
     print(layer.get_weights())
-    train_data(model, config, argv[1])
+    train_data(model, config)
     # print(model.summary())
 
 import sys

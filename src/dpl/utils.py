@@ -361,7 +361,7 @@ def conv2d_bn(input, nums_kernel, size, strides=1, padding='same', weight_decay=
 
 # output_shape --> [batch_size, height, width, channels]
 def deconv2d_bn(input, nums_kernal, output_shape, size=(4, 4),  strides=(2,2), padding='same', name=None):
-    if 1: # use deconvolution
+    if 0: # use deconvolution
         x = Conv2DTranspose(nums_kernal, size,
                             output_shape=(output_shape[1].value, output_shape[2].value, nums_kernal),
                             strides=strides, padding=padding, name=name)(input)
