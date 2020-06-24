@@ -1,5 +1,5 @@
 ## LearnDeepLearning
-使用keras实现常用的深度学习网络（CNN,RNN,FCN）
+使用keras实现经典的神经网络结构
 
 ## 文件布局
 * Log/ 学习过程中的笔记  
