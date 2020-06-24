@@ -1,7 +1,7 @@
 ## LearnDeepLearning
 使用keras实现经典的神经网络结构
 
-## 文件布局
+## 目录结构
 * Log/ 学习过程中的笔记  
 * src/ 实现源码  
 	* dpl/ 辅助接口
